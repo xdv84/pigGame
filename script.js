@@ -75,7 +75,8 @@ btnNewGame.addEventListener('click', function () {
   document.querySelector(`.player--${activePlayer}`).classList.remove('player--winner')
   activePlayer = 0
   document.getElementById(`name--${activePlayer}`).textContent = `Player ${activePlayer + 1}`
-  document.querySelector(`.player--${activePlayer}`).classList.add('.player--active')
+  document.querySelector(`.player--0`).classList.add('player--active')
+  document.querySelector(`.player--1`).classList.remove('player--active')
   getCurrentScore = 0
   document.getElementById('current--0').textContent = 0
   document.getElementById('current--1').textContent = 0
