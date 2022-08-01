@@ -3,12 +3,12 @@
 // Total score
 const getTotalScore0 = document.getElementById('score--0')
 const getTotalScore1 = document.getElementById('score--1')
-getTotalScore0.textContent = 0
-getTotalScore1.textContent = 0
+// getTotalScore0.textContent = 0
+// getTotalScore1.textContent = 0
 
 // Current score
-let getCurrentScore = 0
-const totalScore = [0, 0]
+const getCurrentScore0 = document.getElementById('current--0')
+const getCurrentScore1 = document.getElementById('current--1')
 
 //Buttons
 const btnNewGame = document.querySelector('.btn--new')
@@ -21,9 +21,29 @@ const viewDice = document.querySelector('.dice')
 // Player
 const player0 = document.querySelector('.player--0')
 const player1 = document.querySelector('.player--1')
-let activePlayer = 0
-let playing = true
 
+let totalScore, getCurrentScore, activePlayer, playing
+
+// Start position
+const init = () => {
+  totalScore = [0, 0]
+  getCurrentScore = 0
+  activePlayer = 0
+  playing = true
+  
+  getCurrentScore0.textContent = 0
+  getCurrentScore1.textContent = 0
+  getTotalScore0.textContent = 0
+  getTotalScore1.textContent = 0
+  
+  document.querySelector(`.player--${activePlayer}`).classList.remove('player--winner')
+  document.getElementById(`name--${activePlayer}`).textContent = `Player ${activePlayer + 1}`
+  document.querySelector(`.player--0`).classList.add('player--active')
+  document.querySelector(`.player--1`).classList.remove('player--active')
+}
+init()
+
+// Switch player's
 const switchPlayer = () => {
   document.getElementById(`current--${activePlayer}`).textContent = 0
   getCurrentScore = 0
@@ -32,6 +52,7 @@ const switchPlayer = () => {
   player1.classList.toggle('player--active')
 }
 
+// Button roll
 btnRollDice.addEventListener('click', function () {
   if (playing) {
   // 1. Generating a random dice roll
@@ -51,6 +72,7 @@ btnRollDice.addEventListener('click', function () {
   }
 })
 
+// Button hold
 btnHold.addEventListener('click', function () {
   // 1. Add current score to active player's score
   if (playing) {
@@ -70,20 +92,8 @@ btnHold.addEventListener('click', function () {
   }
 })
 
-btnNewGame.addEventListener('click', function () {
-  playing = true
-  document.querySelector(`.player--${activePlayer}`).classList.remove('player--winner')
-  activePlayer = 0
-  document.getElementById(`name--${activePlayer}`).textContent = `Player ${activePlayer + 1}`
-  document.querySelector(`.player--0`).classList.add('player--active')
-  document.querySelector(`.player--1`).classList.remove('player--active')
-  getCurrentScore = 0
-  document.getElementById('current--0').textContent = 0
-  document.getElementById('current--1').textContent = 0
-  document.getElementById('score--0').textContent = 0
-  document.getElementById('score--1').textContent = 0
-  totalScore[0] = 0
-  totalScore[1] = 0
-})
+// Button new game
+btnNewGame.addEventListener('click', init)
+
 
 
