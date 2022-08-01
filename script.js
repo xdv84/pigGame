@@ -3,8 +3,6 @@
 // Total score
 const getTotalScore0 = document.getElementById('score--0')
 const getTotalScore1 = document.getElementById('score--1')
-// getTotalScore0.textContent = 0
-// getTotalScore1.textContent = 0
 
 // Current score
 const getCurrentScore0 = document.getElementById('current--0')
