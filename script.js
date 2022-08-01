@@ -36,7 +36,8 @@ const init = () => {
   
   document.querySelector('.player--0').classList.remove('player--winner')
   document.querySelector('.player--1').classList.remove('player--winner')
-  document.getElementById(`name--${activePlayer}`).textContent = `Player ${activePlayer + 1}`
+  document.getElementById(`name--0`).textContent = `Player 0`
+  document.getElementById(`name--1`).textContent = `Player 1`
   document.querySelector(`.player--0`).classList.add('player--active')
   document.querySelector(`.player--1`).classList.remove('player--active')
 }
@@ -78,7 +79,7 @@ btnHold.addEventListener('click', function () {
     totalScore[activePlayer] += getCurrentScore
     document.getElementById(`score--${activePlayer}`).textContent = totalScore[activePlayer]
     // 2. Check if player's score is >= 100
-    if (totalScore[activePlayer] >= 100) {
+    if (totalScore[activePlayer] >= 10) {
       viewDice.classList.add('hidden')
       document.querySelector(`.player--${activePlayer}`).classList.add('player--winner')
       document.querySelector(`.player--${activePlayer}`).classList.remove('player--active')
