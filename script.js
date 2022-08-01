@@ -34,7 +34,8 @@ const init = () => {
   getTotalScore0.textContent = 0
   getTotalScore1.textContent = 0
   
-  document.querySelector(`.player--${activePlayer}`).classList.remove('player--winner')
+  document.querySelector('.player--0').classList.remove('player--winner')
+  document.querySelector('.player--1').classList.remove('player--winner')
   document.getElementById(`name--${activePlayer}`).textContent = `Player ${activePlayer + 1}`
   document.querySelector(`.player--0`).classList.add('player--active')
   document.querySelector(`.player--1`).classList.remove('player--active')
